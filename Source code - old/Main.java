@@ -198,8 +198,8 @@ public class Main extends Application {
 
     //Set-up: accessing the Twilio account that will be used
     //Find your Account SID and Token at twilio.com/user/account
-    private static final String ACCOUNT_SID = "AC7a7d1ed9a100ade543119a10d80abd3e";
-    private static final String AUTH_TOKEN = "d8c81a50e63739c49c253f8e0f560aeb";
+    private static final String ACCOUNT_SID = "------------------";
+    private static final String AUTH_TOKEN = "-------------------";
 
     //Create ArrayList for Customers
     ArrayList<Customer> CustomerList = new ArrayList<Customer>();
