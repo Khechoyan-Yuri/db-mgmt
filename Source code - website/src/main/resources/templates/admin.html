@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+    <div th:replace="layout :: heading"></div>
+    <div class="container">
+        <div class="main">
+            <h2>Customer Service Queue Administration Page</h2>
+            <div class="table queue">
+                <div class="row">
+                    <div class="cell col table-title">
+                        <span>Customers Currently in the Queue</span>
+                    </div>
+                    <div class="cell col">Check-in Time</div>
+                    <div class="cell col">Check-out Time</div>
+                </div>
+                <div class="row" th:each="customer : ${customers}">
+                    <div class="cell col">
+                        <a th:href="@{|/edit/${customer.id}|}"><img class="edit-icon" th:src="@{/img/edit_icon_dark.png}" /></a>
+                        <span th:text="${customer.firstName} + ' ' +${customer.lastName}"></span>
+                    </div>
+                    <div class="cell col" th:text="${customer.checkInTime}"></div>
+                    <div class="cell col" th:text="${customer.checkOutTime}"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

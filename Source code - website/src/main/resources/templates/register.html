@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+<div th:replace="layout :: heading"></div>
+<div class="container">
+    <div class="main">
+        <h2>Add Yourself to the Customer Service Queue</h2>
+        <p>To be assisted by a Customer Service Representative: Enter your <strong>First Name</strong>,
+            <strong>Last Name</strong>, and your <strong>(10) ten-digit Mobile Phone Number</strong>. (i.e. 0123456789).
+            Also enter a <strong>Reason for your Visit</strong> today. The phone number will be used to send you
+            SMS Text Messages. When done, click the <strong>"Register"</strong> button to confirm.</p>
+        <form method="post" th:action="@{${action}}" th:object="${customer}">
+            <div class="elements">
+                <div class="row">
+                    <div class="cell c1">
+                        <span>First Name:</span>
+                    </div>
+                    <div class="cell c2" th:classappend="${#fields.hasErrors('firstName')}? 'error' : ''">
+                        <input type="text" autofocus="autofocus" th:field="*{firstName}"  />
+                        <div class="error-message" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></div>
+                    </div>
+                    <div class="cell c1">
+                        <span>Last Name:</span>
+                    </div>
+                    <div class="cell c2">
+                        <input type="text"  th:field="*{lastName}"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="cell c1">
+                        <span>Mobile Phone Number:</span>
+                    </div>
+                    <div class="cell c2">
+                        <input pattern="^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$"
+                               type="text" th:field="*{mobileNumber}" />
+                    </div>
+                    <div class="cell c1">
+                        <span>Reason For Visit:</span>
+                    </div>
+                    <div class="cell c2">
+                        <select th:field="*{reasonForVisit}" name="reasonForVisit">
+                            <option selected="selected" value="" disabled="disabled">Select a reason</option>
+                            <option th:each="reason : ${reasons}" th:value="${reason.reason}" th:text="${reason.name}"></option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="buttons">
+                <div class="cell">
+                    <button type="submit">Register</button>
+                </div>
+                <div class="cell">
+                    <a href="/">View Queue</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

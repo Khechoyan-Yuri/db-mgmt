@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: head"></head>
+<body>
+    <div th:replace="layout :: heading"></div>
+    <div class="main">
+        <h2>Welcome to the Customer Service Queue</h2>
+        <p>To add yourself to the Customer Service Queue, click "Register" and
+            fill out the form.</p>
+        <p>There are currently <span th:text="${count}"></span> in the queue ahead of you.</p>
+        <!--<p>Estimated wait time: <span th:text="${waittime}"></span></p>-->
+        <div class="table">
+            <div class = "row">
+                <div class="cell col buttons">
+                    <a class="pagelinks button handle-button" href="/handle">Handle Next Customer</a>
+                    <a class="pagelinks button register" href="/customer">Register</a>
+                </div>
+            </div>
+        </div>
+        <div class="table queue">
+            <div class="row">
+                <div class="cell col">
+                    Customers Currently in the Queue
+                </div>
+            </div>
+            <div class="row" th:each="customer : ${customers}">
+                <div class="cell col" th:text="${customer.firstName} + ' ' +
+                    ${customer.lastName}">
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <meta description="viewport" content="width=device-width, initial-scale=1"/>
+
+    <link rel="icon" th:href="@{/img/queued.jpg}" />
+    <link rel="stylesheet" th:href="@{/app.css}" />
+    <!-- Include one of jTable styles. -->
+    <link href="/jtable/themes/metro/blue/jtable.min.css" rel="stylesheet" type="text/css" />
+
+    <title th:text="'Customer Queue | ' + ${page_title}"></title>
+</head>
+<body>
+<div th:fragment="heading" class="heading">
+    <img class="logo" th:src="@{/img/queued.jpg}" alt="logo" />
+    <h1>Customer Service Queue</h1>
+    <nav class="heading-nav">
+        <a href="/">Home | </a>
+        <a href="/customer">Register | </a>
+        <a href="/admin">Admin | </a>
+        <form th:action="@{/logout}" method="post">
+            <button type="submit">Logout</button>
+        </form>
+    </nav>
+</div>
+
+<div th:fragment="register-heading" th:if="${purpose=='register'}">
+    <h2>Add Yourself to the Customer Service Queue</h2>
+    <p>To be assisted by a Customer Service Representative: Enter your <strong>First Name</strong>,
+        <strong>Last Name</strong>, and your <strong>(10) ten-digit Mobile Phone Number</strong>. (i.e. 0123456789).
+        Also enter a <strong>Reason for your Visit</strong> today. The phone number will be used to send you
+        SMS Text Messages. When done, click the <strong>"Register"</strong> button to confirm.</p>
+</div>
+
+<div th:fragment="edit-heading" th:if="${purpose=='edit'}">
+    <h2>Hello, Admin</h2>
+    <p>Make changes below.</p>
+</div>
+
+<div th:fragment="flash" th:if="${flash != null}" class="container">
+    <!--<i class="right material-icons" data-close="">close</i>-->
+    <div th:classappend="${#strings.toLowerCase(flash.status)}" th:text="${flash.message}" class="flash"></div>
+</div>
+
+
+<div th:fragment="scripts">
+</div>
+
+</body>
+</html>

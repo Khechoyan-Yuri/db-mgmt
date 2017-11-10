@@ -1,0 +1,96 @@
+---1/1/17---
+	added comments
+	added window (stage) for Viewing Queue
+	added title to entire window & descripsion inside window
+	added moved VZ logo - shifted more to botton right corner:
+		-main window
+		-view queue window
+		-shut down window
+	added Delete button to view queue window
+	added queue system - ArrayList
+	added position in line to text message (nth place)
+	added "Null" text to view queue when no one is in the queue
+	added console output for current registrees: position, FName & LName
+	added code that clears text fields once resistration is complete
+		-let next customer register
+		-if registration fails, text fields do not clear
+
+
+---1/2/17---
+	added alert box when red 'X' button is pressed
+		-when red 'X' button is pressed, program will NOT terminate, instead:
+		program will display an alert message that tells whoever tried to close the program
+		that hey have done something wrong and tells them to please go back 
+	added functionality to the viewQueue window increasing rowindex problem
+		- place+4; rowindex 4 is where initally the names should start
+
+
+---1/3/17----
+	added iteration to text message out after 'Delete' button is pressed
+		- "Yuri, you are now (0) in line for assistance. Please wait for your name to be called."
+		- "John, you are now (1) in line for assistance. Please be patient with us. Thank you."
+	added CustomerList.get(place) text message to people who are 1, 2, 3, 4, 5, 10 in line (do not care who is in that spot) - similar to viewQueue output
+	added new window when Delete button inside of View Queue is pressed
+		- New window is designed as a safety feature. When delete is pressed, new window shows up asking for a Deletion Code
+		- This prevents from any accidental (or intential) deletions by a customer and/or employee
+	modified SMS output to user: Top of the list is now position (1) not (0)
+
+---1/6/17--- version 4.9.47
+	added Copyright Information to the bottom of the Main registration window
+
+---1/12/17--- version 4.10.21
+	fixed positioning of 10th person in line
+		- line 687: 'int placeNine' NOT 'int placeFive' - placeFive would be the 6th person in line, not 10th
+
+---2/3/17--- version 4.14.21
+	added a drop down menu (ChoiceBox) for user to select the reason for their visit
+		Options are:
+			-Account Issues*
+			-Billing/Payment
+			-Device Upgrade
+			-New Customer
+			-Technical Support
+	* - Default value that ChoiceBox is set when Registration is complete
+	only funtionality (currently) = output to console
+
+
+---2/8/17--- version 5.2.9
+	added ability to print the daily registered users into a document for business purposes
+		-System.out works currently for printing checkInTime & checkOutTime vars (testing)
+	
+	Current things outputting to file (for last user in queue ONLY):
+		-First Name
+		-Last Name
+		-Reason for Visit
+		-checkInTime (null - for some reason)
+		-checkOutTime (not yet implemented)
+
+Current problems:
+	-only last person on the queue is outputted to file
+	-insode of file, newLine() method does not work
+		-when multiple users register, program does not move to new line in file
+	
+	-for the only person recorded in file (last person in queue):
+		-checkInTime = 'null'
+		-checkOutTime does not exist (not yet implemented)
+
+
+---2/11/17--- version 6.25.7
+	added functionality for documenting all records into Excel Documents
+
+---2/17/17--- version 6.25.8
+	added column for recording registered customers phone numbers
+	ORDER:
+		-First Name
+		-Last Name
+		-Phone Number
+		-Reason for Visit
+		-Check In
+		-Check Out
+
+
+	
+
+
+
+

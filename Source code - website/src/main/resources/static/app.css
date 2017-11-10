@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css?family=Palanquin');
+
+body {
+    font-family: 'Palanquin', sans-serif;
+    margin:0;
+}
+
+.main {
+    max-width: 700px;
+    margin:auto;
+}
+
+.heading-nav {
+    /*white-space:nowrap;*/
+    margin-left:auto;
+    padding-right: 10px;
+    margin-bottom: auto;
+}
+
+.heading-nav * {
+    color:white;
+    text-decoration:none;
+    display: inline;
+    background-color:transparent;
+    border:none;
+    font-size: medium;
+    font-family:'Palanquin', sans-serif;
+    padding:0px;
+}
+
+.login-image {
+    margin:auto;
+    margin-top:40px;
+}
+
+.table.queue .row:nth-child(even) {
+    background-color: rgba(211, 150, 100,.2);
+}
+
+.table.queue .row:nth-child(odd) {
+    background-color: #D32023;
+    color:white;
+}
+
+.table
+{
+    border-radius:5px;
+    border-collapse:separate;
+}
+
+.heading {
+    background-color: #D32023;
+    display: flex;
+    align-items: center;
+}
+
+.heading h1 {
+    color: #ffffff;
+    background-color: #D32023;
+    padding:10px;
+}
+
+.logo {
+    vertical-align: middle;
+    margin: 10px;
+    width: 200px;
+}
+
+.container {
+    margin:10px;
+}
+
+.table-title span
+{
+    column-span: all;
+}
+
+.elements .row, .table .row {
+    display:table-row;
+}
+
+.cell
+{
+    display:table-cell;
+    font-weight:bold;
+}
+
+.elements, .table
+{
+    display:table;
+    margin:auto;
+    border-radius:5px;
+}
+
+.c1 {
+    padding-right: 10px;
+}
+
+.c2 {
+    padding-right: 20px;
+}
+
+.cell.col {
+    padding:10px;
+}
+
+.elements select {
+    width:100%;
+}
+
+.edit-icon {
+    height:20px;
+    width:20px;
+}
+
+.register-button, undo-checkout-button {
+        text-decoration:none;
+        padding:5px;
+        font-weight:bold;
+        background-color:#D32023;
+        border-radius:5px;
+        border:none;
+        color:white;
+        font-size: medium;
+        font-family:'Palanquin', sans-serif;
+        padding:5px;
+}
+
+.buttons {
+    margin:auto;
+    margin-top:0px;
+    margin-bottom:40px;
+    display:table;
+}
+
+.buttons .cell {
+    border: 10px solid transparent;
+}
+
+.pagelinks.button {
+    text-decoration:none;
+    padding:5px;
+    font-weight:bold;
+    background-color:#D32023;
+    border-radius:5px;
+    color:white;
+}
+
+.handle-button {
+    margin-right:20px;
+}
+
+.register-button {
+    margin-right:20px;
+}
+
+/* error CSS */
+
+.error input {
+    border-width: 2px;
+    border-color: #ac4343;
+    border-bottom: none;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.error .error-message {
+    border: 2px solid #ac4343;
+    border-radius: 0 0 6px 6px;
+    background-color: #ac4343;
+    color: rgb(254,251,251);
+    padding: 10px;
+}
+
+.file-wrapper.error {
+    border-width: 2px;
+    border-color: #ac4343;
+}
+
+.file-wrapper.error .error-message {
+    border-radius: 0;
+}
+
+.error:not(.file-wrapper) {
+    display: flex;
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+}
+
+.error .cs-select {
+    order: -1;
+    -webkit-order: -1;
+}
+
+.error .cs-select.cs-skin-border:not(.cs-active) .cs-placeholder {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    border-color: #ac4343;
+    border-width: 2px;
+}
