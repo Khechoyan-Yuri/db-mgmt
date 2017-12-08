@@ -8,7 +8,7 @@
 -- 
 PHP Version: 7.1.9
 
-
+--
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
 
