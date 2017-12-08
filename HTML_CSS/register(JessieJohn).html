@@ -127,7 +127,38 @@
 		$servername = "localhost";
 		$username = "root";
 		$password = "";
-		$dbname = "burgersbydesign";
+		$dbname = "project_db";
+		
+		try {
+			$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+			$stmt = $conn->prepare("INSERT INTO customer(Fname, Lname, CellNum, ReasonForVisit) VALUES(?,?)");
+			//Values to input
+			$fname = $_POST["fname"];
+			$lname= $_POST["lname"];
+			$phonenumber= $_POST["phonenumber"];
+			if(isset($_POST["device"])) {
+				$reason= $_POST["device"];
+			}
+			
+			else if(isset($_POST["billing"])) {
+				$reason= $_POST["billing"];
+			}
+			
+			else if(isset($_POST["account"])) {
+				$reason= $_POST["account"];
+			}
+			
+			else if(isset($_POST["services"])) {
+				$reason= $_POST["services"];
+			}
+			
+			$stmt->execute(array($fname, $lname, $phonenumber, $reason));
+			echo "$name has been added<br>";
+		}
+		catch(PDOException $e){
+			echo "Connection failed: " . $e->getMessage();
+		}
 	}
 
   ?>
