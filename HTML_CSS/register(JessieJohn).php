@@ -81,13 +81,58 @@
 			<style="text-align: center;"><br/>
 			</div>
 			
+		<!-- Email -->
+		
+			<div class="Login" 
+			style="text-align: center;">
+			<label><strong>Email </strong></label>
+			<input name="email" required="" type="text" value="email" placeholder="johndoe@email.com" />
+			
+			<div class="Login" style="text-align: center;"></div>
+			<div class="Login" style="text-align: center;">
+		
+		<!-- Center Alignment for spacing -->
+			<div class="Login" 
+			<style="text-align: center;"><br/>
+			</div>
+			
+		<!-- Notification Frequency -->
+		
+			<div class="Login" 
+			style="text-align: center;">
+			<label><strong>Notification Frequency </strong></label> 
+			<input name="notfreq" required="" type="text" value="notfreq" placeholder="eg. 5" />
+			
+			<div class="Login" style="text-align: center;"></div>
+			<div class="Login" style="text-align: center;">
+			
+		<!-- Center Alignment for spacing -->
+			<div class="Login" 
+			<style="text-align: center;"><br/>
+			</div>
+			
+		<!-- Preference -->
+		
+			<div class="Login" 
+			style="text-align: center;">
+			<label><strong>Preference </strong></label> 
+			<input name="preference" required="" type="number" value="preference" placeholder="eg. 0" />
+			
+			<div class="Login" style="text-align: center;"></div>
+			<div class="Login" style="text-align: center;">
+			
+			<!-- Center Alignment for spacing -->
+			<div class="Login" 
+			<style="text-align: center;"><br/>
+			</div>
+			
 			<!-- Reason For Visit -->
 			<div class="Login" 
 			<style="text-align: center;">
 			<label><strong>Reason For Visit</strong></label> 
 			
 		<!-- Drop Down Menu -->
-			<select>
+			<select name="reason">
 				<option selected="null">
 				<!--<option value="device">New Customer</option>-->
 				<option value="device">Device</option>
@@ -123,7 +168,7 @@
   </body>
   </html>
   <?php
-	if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["phonenumber"]) && (isset($_POST["device"]) || isset($_POST["billing"]) || isset($_POST["account"]) || isset($_POST["services"]))) {
+	if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["phonenumber"]) && isset($_POST["email"]) && isset($_POST["notfreq"]) && isset($_POST["preference"]) && isset($_POST["reason"])) {
 		$servername = "localhost";
 		$username = "root";
 		$password = "";
@@ -132,29 +177,19 @@
 		try {
 			$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$stmt = $conn->prepare("INSERT INTO customer(Fname, Lname, CellNum, ReasonForVisit) VALUES(?,?,?,?)");
+			$stmt = $conn->prepare("INSERT INTO customer(Fname, Lname, CellNum, Email, NotifyFreq, ReasonForVisit, TicketID, Preference) VALUES(?,?,?,?,?,?,?,?)");
 			//Values to input
 			$fname = $_POST["fname"];
 			$lname= $_POST["lname"];
 			$phonenumber= $_POST["phonenumber"];
-			if(isset($_POST["device"])) {
-				$reason= $_POST["device"];
-			}
+			$email= $_POST["email"];
+			$notfreq= $_POST["notfreq"];
+			$preference= $_POST["preference"];
+			$reason = $_POST["reason"];
+			$ticketid = "1";
 			
-			else if(isset($_POST["billing"])) {
-				$reason= $_POST["billing"];
-			}
-			
-			else if(isset($_POST["account"])) {
-				$reason= $_POST["account"];
-			}
-			
-			else if(isset($_POST["services"])) {
-				$reason= $_POST["services"];
-			}
-			
-			$stmt->execute(array($fname, $lname, $phonenumber, $reason));
-			echo "$name has been added<br>";
+			$stmt->execute(array($fname, $lname, $phonenumber, $email, $notfreq, $reason, $ticketid, $preference));
+			echo "$fname $lname has been added<br>";
 		}
 		catch(PDOException $e){
 			echo "Connection failed: " . $e->getMessage();
