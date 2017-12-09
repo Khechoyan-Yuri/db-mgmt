@@ -132,7 +132,7 @@
 		try {
 			$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$stmt = $conn->prepare("INSERT INTO customer(Fname, Lname, CellNum, ReasonForVisit) VALUES(?,?)");
+			$stmt = $conn->prepare("INSERT INTO customer(Fname, Lname, CellNum, ReasonForVisit) VALUES(?,?,?,?)");
 			//Values to input
 			$fname = $_POST["fname"];
 			$lname= $_POST["lname"];
