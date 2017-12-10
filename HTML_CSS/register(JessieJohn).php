@@ -38,13 +38,14 @@
 		<img style="margin-right: auto; margin-left: auto; display: block;" 
 		src="Images/queued.jpg" alt="Queued Logo" /><br /></span></div>
 	
-		<!-- Center Alignment for Username fields -->
+		<!-- Center Alignment for First fields -->
 		<form method="POST">
 			<div class="Login" 
 				style="text-align: center;">
-				<!-- Username Object --> 
+				
+		<!-- First Name Object --> 
 				<label><strong>First Name</strong></label> 
-				<input name="fname" required="" type="text" value="fname" align="" placeholder="i.e. John" />
+				<input name="" required="" type="text" value="fname" align="" placeholder="i.e. John" />
 			</div>
 		
 			<!-- Center Alignment for spacing -->
@@ -52,11 +53,11 @@
 			<style="text-align: center;"><br/>
 			</div>
 		
-		
+		<!-- Last Name Object --> 
 			<div class="Login" 
 			style="text-align: center;">
 			<label><strong>Last Name</strong></label> 
-			<input name="lname" required="" type="text" value="lname" placeholder="i.e. Smith" /></div>
+			<input name="" required="" type="text" value="lname" placeholder="i.e. Smith" /></div>
 		
 			<div class="Login" style="text-align: center;"></div>
 			<div class="Login" style="text-align: center;">
@@ -67,11 +68,10 @@
 			</div>
 		
 		<!-- Phone Number -->
-		
 			<div class="Login" 
 			style="text-align: center;">
 			<label><strong>Phone Number</strong></label> 
-			<input name="phonenumber" required="" type="number" value="phonenumber" placeholder="1235550186" /></div>
+			<input name="" required="" type="number" value="phonenumber" placeholder="1235550186" /></div>
 		
 			<div class="Login" style="text-align: center;"></div>
 			<div class="Login" style="text-align: center;">
@@ -81,12 +81,11 @@
 			<style="text-align: center;"><br/>
 			</div>
 			
-		<!-- Email -->
-		
+		<!-- Email Object --> 
 			<div class="Login" 
 			style="text-align: center;">
 			<label><strong>Email </strong></label>
-			<input name="email" required="" type="text" value="email" placeholder="johndoe@email.com" />
+			<input name="" required="" type="text" value="email" placeholder="johndoe@email.com" />
 			
 			<div class="Login" style="text-align: center;"></div>
 			<div class="Login" style="text-align: center;">
@@ -96,12 +95,12 @@
 			<style="text-align: center;"><br/>
 			</div>
 			
-		<!-- Notification Frequency -->
+		<!-- Notification Frequency Object --> 
 		
 			<div class="Login" 
 			style="text-align: center;">
 			<label><strong>Notification Frequency </strong></label> 
-			<input name="notfreq" required="" type="text" value="notfreq" placeholder="eg. 5" />
+			<input name="" required="" type="text" value="notfreq" placeholder="eg. 5" />
 			
 			<div class="Login" style="text-align: center;"></div>
 			<div class="Login" style="text-align: center;">
@@ -111,12 +110,11 @@
 			<style="text-align: center;"><br/>
 			</div>
 			
-		<!-- Preference -->
-		
+		<!-- Preference Object --> 
 			<div class="Login" 
 			style="text-align: center;">
 			<label><strong>Preference </strong></label> 
-			<input name="preference" required="" type="number" value="preference" placeholder="eg. 0" />
+			<input name="" required="" type="number" value="preference" placeholder="eg. 0" />
 			
 			<div class="Login" style="text-align: center;"></div>
 			<div class="Login" style="text-align: center;">
@@ -126,12 +124,12 @@
 			<style="text-align: center;"><br/>
 			</div>
 			
-			<!-- Reason For Visit -->
+		<!-- Reason For Visit Object --> 
 			<div class="Login" 
 			<style="text-align: center;">
 			<label><strong>Reason For Visit</strong></label> 
 			
-		<!-- Drop Down Menu -->
+		<!-- Drop Down Menu Object-->
 			<select name="reason">
 				<option selected="null">
 				<!--<option value="device">New Customer</option>-->
@@ -146,8 +144,8 @@
 			<style="text-align: center;"><br/>
 			</div>
 		
-			<!-- Login Button Object --> 
-			<button type="submit">Login</button></div>
+		<!-- Login Button Object --> 
+			<button type="submit">Register</button></div>
 			<div></div>
 			
 				<div class="Login" style="text-align: center;"></div>
