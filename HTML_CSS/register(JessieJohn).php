@@ -11,11 +11,9 @@
     <div class="main-nav">
         <ul class="nav">
           <li class="name"> 
-		  <img src="Images/queued.jpg" alt="Queued Logo" width="150" height="75"></li>
+		  <img src="Images/queued2.jpg" alt="Queued Logo" width="238" height="85"></li>
 		  <li><a href="index.html">Home</a></li>
-          <li><a href="queue.html">Queue</a></li>
 		  <li><a href="register.html">Register</a></li>
-          <li><a href="admin-login.html">Admin</a></li>
         </ul>
     </div>
 
@@ -166,51 +164,16 @@
   </body>
   </html>
   <?php
-	
 	if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["phonenumber"]) && isset($_POST["email"]) && isset($_POST["notfreq"]) && isset($_POST["preference"]) && isset($_POST["reason"])) {
-		
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "project_db";
 		
 		try {
-			$servername = "localhost";
-			$username = "root";
-			$password = "";
-			$dbname = "project_db";
-		  
-			$conn1 = new mysqli($servername, $username, $password, $dbname);
-			$sql = "SELECT TicketID FROM customer";
-			$result = $conn1->query($sql);
-			$currentdate = date("Y/m/d");
-			$arr[] = null;
-			$numinqueue = 0;
-			while ($row = mysqli_fetch_array($result, MYSQLI_NUM)) {
-				 foreach ($row as $r)
-					{
-						$arr[] = "$r ";
-						
-					}
-			}
-			$parts = null;
-			
-			foreach ($arr as $r) {
-				
-				$parts [] = explode("-", $r);
-				
-			}
-			foreach ($parts as $r) {
-				 
-				if($r[0] != null && $currentdate == $r[0]){
-					$numinqueue = $r[1];
-				}
-				else {
-					$numinqueue = 0;
-				}
-			}
-				
 			$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$stmt = $conn->prepare("INSERT INTO customer(Fname, Lname, CellNum, Email, NotifyFreq, ReasonForVisit, TicketID, Preference) 
-			VALUES(?,?,?,?,?,?,?,?)");
-			
+			$stmt = $conn->prepare("INSERT INTO customer(Fname, Lname, CellNum, Email, NotifyFreq, ReasonForVisit, TicketID, Preference) VALUES(?,?,?,?,?,?,?,?)");
 			//Values to input
 			$fname = $_POST["fname"];
 			$lname= $_POST["lname"];
@@ -219,7 +182,7 @@
 			$notfreq= $_POST["notfreq"];
 			$preference= $_POST["preference"];
 			$reason = $_POST["reason"];
-			$ticketid = "$currentdate-$numinqueue";
+			$ticketid = "1";
 			
 			$stmt->execute(array($fname, $lname, $phonenumber, $email, $notfreq, $reason, $ticketid, $preference));
 			echo "$fname $lname has been added<br>";
