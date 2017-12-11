@@ -1,7 +1,7 @@
 
 	<?php
 		
-	if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["phonenumber"]) && isset($_POST["email"]) && isset($_POST["notfreq"]) && isset($_POST["preference"]) && !(empty($_POST["reason"]))) {
+	if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["phonenumber"]) && isset($_POST["email"]) && isset($_POST["notfreq"]) && !(empty($_POST["reason"]))) {
 			
 			
 		try {
@@ -45,8 +45,8 @@
 					
 				$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$stmt = $conn->prepare("INSERT INTO customer(Fname, Lname, CellNum, Email, NotifyFreq, ReasonForVisit, TicketID, Preference) 
-				VALUES(?,?,?,?,?,?,?,?)");
+				$stmt = $conn->prepare("INSERT INTO customer(Fname, Lname, CellNum, Email, NotifyFreq, ReasonForVisit, TicketID) 
+				VALUES(?,?,?,?,?,?,?)");
 				
 				//Values to input
 				$fname = $_POST["fname"];
@@ -54,11 +54,10 @@
 				$phonenumber= $_POST["phonenumber"];
 				$email= $_POST["email"];
 				$notfreq= $_POST["notfreq"];
-				$preference= $_POST["preference"];
 				$reason = $_POST["reason"];
 				$ticketid = "$currentdate-$numinqueue";
 				
-				$stmt->execute(array($fname, $lname, $phonenumber, $email, $notfreq, $reason, $ticketid, $preference));
+				$stmt->execute(array($fname, $lname, $phonenumber, $email, $notfreq, $reason, $ticketid));
 				echo "$fname $lname has been added<br>";
 			}
 			catch(PDOException $e){
@@ -186,20 +185,6 @@
 			<style="text-align: center;"><br/>
 			</div>
 			
-		<!-- Preference -->
-		
-			<div class="Login" 
-			style="text-align: center;">
-			<label><strong>Preference </strong></label> 
-			<input name="preference" required="" type="number" value="preference" placeholder="eg. 0" />
-			
-			<div class="Login" style="text-align: center;"></div>
-			<div class="Login" style="text-align: center;">
-			
-			<!-- Center Alignment for spacing -->
-			<div class="Login" 
-			<style="text-align: center;"><br/>
-			</div>
 			
 			<!-- Reason For Visit -->
 			<div class="Login" 
