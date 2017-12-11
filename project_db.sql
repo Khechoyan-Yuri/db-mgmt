@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.4
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 09, 2017 at 12:56 AM
+-- Generation Time: Dec 11, 2017 at 11:13 PM
 -- Server version: 10.1.26-MariaDB
--- PHP Version: 7.1.9
+-- PHP Version: 7.1.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -31,22 +31,20 @@ SET time_zone = "+00:00";
 CREATE TABLE `customer` (
   `Fname` varchar(50) NOT NULL,
   `Lname` varchar(50) NOT NULL,
-  `CellNum` int(10) NOT NULL,
+  `CellNum` bigint(10) NOT NULL,
   `Email` varchar(75) NOT NULL,
-  `NotifyFreq` varchar(15) NOT NULL,
   `ReasonForVisit` varchar(15) NOT NULL,
-  `TicketID` varchar(14) NOT NULL,
-  `Preference` int(5) NOT NULL
+  `TicketID` varchar(14) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`Fname`, `Lname`, `CellNum`, `Email`, `NotifyFreq`, `ReasonForVisit`, `TicketID`, `Preference`) VALUES
-('Jessie', 'Wilkins', 911, 'ProbablySomethingRelatedToVideoGames@gmail.com', '5', 'Billing', 'VWXYZ123456789', 1),
-('Samantha', 'Eidson', 12345, 'SomethingAboutChickensAndDatabases@gmail.com', '5', 'Billing', 'QWERT123456789', 1),
-('Yuri', 'Khechoyan', 2147483647, 'SomethingWithPandasInIt@gmail.com', '5', 'Phone_Repair', 'ABCDE123456789', 0);
+INSERT INTO `customer` (`Fname`, `Lname`, `CellNum`, `Email`, `ReasonForVisit`, `TicketID`) VALUES
+('fname', 'lname', 1231231234, 'email', 'billing', '2017/12/11-0'),
+('Jessie', 'Wilkins', 2147483647, 'jessiekwilkins@yahoo.com', 'billing', '2017/12/11-1'),
+('Yuri', 'Khechoyan', 9879879876, 'yuri@greathair.com', 'services', '2017/12/11-2');
 
 -- --------------------------------------------------------
 
@@ -105,16 +103,6 @@ ALTER TABLE `device`
 ALTER TABLE `employee`
   ADD PRIMARY KEY (`EMPID`),
   ADD KEY `ticket_assigned` (`ticket_assigned`);
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `customer`
---
-ALTER TABLE `customer`
-  ADD CONSTRAINT `FK_TicketConstraint` FOREIGN KEY (`TicketID`) REFERENCES `employee` (`ticket_assigned`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,7 +1,7 @@
 
 	<?php
 		
-	if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["phonenumber"]) && isset($_POST["email"]) && isset($_POST["notfreq"]) && !(empty($_POST["reason"]))) {
+	if(isset($_POST["fname"]) && isset($_POST["lname"]) && isset($_POST["phonenumber"]) && isset($_POST["email"]) && !(empty($_POST["reason"]))) {
 			
 			
 		try {
@@ -45,7 +45,7 @@
 					
 				$conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
 				$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				$stmt = $conn->prepare("INSERT INTO customer(Fname, Lname, CellNum, Email, NotifyFreq, ReasonForVisit, TicketID) 
+				$stmt = $conn->prepare("INSERT INTO customer(Fname, Lname, CellNum, Email, ReasonForVisit, TicketID) 
 				VALUES(?,?,?,?,?,?,?)");
 				
 				//Values to input
@@ -53,11 +53,10 @@
 				$lname= $_POST["lname"];
 				$phonenumber= $_POST["phonenumber"];
 				$email= $_POST["email"];
-				$notfreq= $_POST["notfreq"];
 				$reason = $_POST["reason"];
 				$ticketid = "$currentdate-$numinqueue";
 				
-				$stmt->execute(array($fname, $lname, $phonenumber, $email, $notfreq, $reason, $ticketid));
+				$stmt->execute(array($fname, $lname, $phonenumber, $email, $reason, $ticketid));
 				echo "$fname $lname has been added<br>";
 			}
 			catch(PDOException $e){
@@ -165,21 +164,6 @@
 			<div class="Login" style="text-align: center;"></div>
 			<div class="Login" style="text-align: center;">
 		
-		<!-- Center Alignment for spacing -->
-			<div class="Login" 
-			<style="text-align: center;"><br/>
-			</div>
-			
-		<!-- Notification Frequency -->
-		
-			<div class="Login" 
-			style="text-align: center;">
-			<label><strong>Notification Frequency </strong></label> 
-			<input name="notfreq" required="" type="text" value="notfreq" placeholder="eg. 5" />
-			
-			<div class="Login" style="text-align: center;"></div>
-			<div class="Login" style="text-align: center;">
-			
 		<!-- Center Alignment for spacing -->
 			<div class="Login" 
 			<style="text-align: center;"><br/>
