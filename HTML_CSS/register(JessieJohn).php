@@ -83,7 +83,7 @@
     <div class="main-nav">
         <ul class="nav">
           <li class="name"> 
-		  <img src="Images/queued.jpg" alt="Queued Logo" width="150" height="75"></li>
+		  <img src="Images/queued.png" alt="Queued Logo" width="60" height="30"></li>
 		  <li><a href="index.html">Home</a></li>
           <li><a href="queue.html">Queue</a></li>
 		  <li><a href="register.html">Register</a></li>
